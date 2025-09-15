@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TTL: Self-Introduction</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -119,6 +120,51 @@
      }
      .info-box.animate {
         animation: pop 0.4s ease;
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        margin-left: 0;
+        width: 90%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+      .info-box {
+        padding: 15px;
+        margin-top: 15px;
+        max-height: 60vh;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      h1 {
+        font-size: 20px;
+      }
+      .container {
+        padding: 15px;
+      }
+    }
     }
   </style>
 </head>
@@ -181,3 +227,4 @@
    </script>
   </body>
 </html>
+
