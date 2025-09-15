@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TTL: Self-Introduction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background: url("selfintro.png") no-repeat center center/cover;
+      background-size: cover;
+      background-repeat: no-repeat; 
+      background-position: center; 
+      background-attachment: fixed;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.532);
+      padding: 30px;
+      margin-left: 190px;
+      border-radius: 15px;
+      max-width: 450px;
+      height: auto;
+      min-height: 300px;
+      max-height: 600px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center; 
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column; 
+      gap: 10px;
+     }
+     button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ede76d, #3bb2bf);
+      color: rgb(48, 46, 46);
+      font-family: Poppins, sans-serif;
+      font-size: 16px;
+      transition: 0.3s;
+      text-align: center; 
+     }
+     @keyframes contentSlide {
+     0%   { transform: translateX(0); }
+     40%  { transform: translateX(20px); }
+     100% { transform: translateX(0); }
+     }
+
+     .container.slide {
+      animation: contentSlide 0.4s ease;
+     }
+
+     .info-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+      max-height: calc(80vh - 200px);
+      overflow-y: auto;
+      flex: 1;
+      max-height: 400px;
+     }
+     .info-box::-webkit-scrollbar {
+      width: 8px;
+     }
+
+     .info-box::-webkit-scrollbar-track {
+       background: #f1f1f1;
+       border-radius: 4px;
+      }
+
+     .info-box::-webkit-scrollbar-thumb {
+       background: #888;
+       border-radius: 4px;
+      }
+
+     .info-box::-webkit-scrollbar-thumb:hover {
+      background: #555;
+     }
+
+     .info-box.show {
+      opacity: 1;
+      transform: translateX(0) scale(1.05);
+     }
+     .info-box:hover {
+        transform: translateX(0) scale(1.05);
+     }
+     @keyframes slideRight {
+     0%   { transform: translateX(0); }
+     40%  { transform: translateX(15px); }
+     100% { transform: translateX(0); }
+     }
+
+     @keyframes slideLeft {
+     0%   { transform: translateX(0); }
+     40%  { transform: translateX(-15px); }
+     100% { transform: translateX(0); }
+     }
+     .info-box.animate {
+        animation: pop 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to My Interactive Introduction!</h1>
+    
+    <div class="buttons">
+      <button onclick="showInfo('personal')">Personal Info</button>
+      <button onclick="showInfo('philosophy')">My Teaching Philosophy</button>
+    </div>
+
+    <div id="info-box" class="info-box"></div>
+  </div>
+
+  <script>
+   function showInfo(type) {
+    const infoBox = document.getElementById("info-box");
+    let content = "";
+
+    if (type === "personal") {
+      content = `
+       <div style="text-align: left;">
+         <h2>About Me</h2>
+         <p><strong>Name:</strong> Erin Red</p>
+         <p><strong>Age:</strong> 21 years old</p>
+         <p><strong>Course:</strong> Bachelor of Secondary Education Major in English</p>
+         <p><strong>Year:</strong> 3rd Year College</p>
+         <p><strong>Family role:</strong> Eldest of three (I have two younger brothers)</p>
+         <p><strong>Hobbies:</strong> Reading, listening to music, watching animated series, walking, and playing the guitar.</p>
+         <p><strong>Motto in life:</strong> <i>"One must imagine Sisyphus happy."</i> This line comes from Albert Camus’ essay <i>The Myth of Sisyphus</i>. 
+          In the story, Sisyphus is condemned by the gods to roll a boulder up a hill for eternity, only to watch it roll back down each time. 
+          Camus’ conclusion reminds me that despite life's repetitiveness, struggles, and absurdity, we can always find meaning by choosing how we respond: 
+          embracing resilience, creating purpose, and living fully, even in the face of pointlessness.</p> 
+        </div>
+      `;
+    } else if (type === "philosophy") {
+      content = `
+        <h2>My Teaching Philosophy</h2>
+        <p>
+          We face so many challenges today: corruption, climate change, wars, and more. These global issues are a reflection of a failed education system.  Too often, schools focus on passively feeding students information, theories, and surface-level understanding.
+         <br>When learners are driven only by immediate outcomes, like submitting outputs, chasing high grades, or simply “getting through” requirements, they miss the true essence of learning.
+         <br>Learning, by definition is, <i>"a transformative process that involves acquiring knowledge, skills, attitudes, and values through experience, observation, and instruction."</i>
+         If learning does not lead to holistic growth, especially in the aspect of moral development, then education has failed to fulfill its very purpose.
+         <br>That is why I believe the role of a teacher today is to produce broadly educated citizens with a sense of stewardship for the world they live in. 
+         <br>To make this vision a reality, students must be taught not only to think critically, but also to think affectively, engaging both the mind and the heart.
+         <br>If we want our nation to change, change must first begin within ourselves. 
+         <br>As a future educator, my aim is to help students recognize their potential, understand the role they play in the larger scheme of things, and inspire them to live a life of purpose by becoming agents of change.
+        </p>
+      `;
+    }
+
+
+    infoBox.innerHTML = content;
+    infoBox.classList.add("show");
+    infoBox.classList.remove("animate");
+    void infoBox.offsetWidth; 
+    infoBox.classList.add("animate");
+   }
+   </script>
+  </body>
+</html>
